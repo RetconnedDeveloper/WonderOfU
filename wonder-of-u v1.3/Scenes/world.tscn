@@ -1,0 +1,87 @@
+[gd_scene load_steps=8 format=3 uid="uid://dln2exny627e6"]
+
+[ext_resource type="Script" path="res://Scripts/fps_controller.gd" id="1_aprkx"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_4ocde"]
+albedo_color = Color(0.948478, 0.714018, 0.902237, 1)
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_efgoq"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_d8k0m"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_bugtv"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_yue24"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_2gkch"]
+
+[node name="World" type="Node3D"]
+
+[node name="CSGBox3D" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.171783, 0, -2.73453)
+material_override = SubResource("StandardMaterial3D_4ocde")
+use_collision = true
+size = Vector3(14.0079, 1, 15.8443)
+
+[node name="Player" type="CharacterBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.62449, 0)
+script = ExtResource("1_aprkx")
+
+[node name="Head" type="Node3D" parent="Player"]
+
+[node name="Camera3D" type="Camera3D" parent="Player/Head"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.686435, -0.685831)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Player"]
+mesh = SubResource("CapsuleMesh_efgoq")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Player"]
+shape = SubResource("CapsuleShape3D_d8k0m")
+
+[node name="UI" type="Control" parent="Player"]
+layout_mode = 3
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -40.0
+offset_right = 40.0
+grow_vertical = 0
+
+[node name="InventoryPanel" type="Panel" parent="Player/UI"]
+custom_minimum_size = Vector2(300, 300)
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -40.0
+offset_right = 40.0
+grow_vertical = 0
+
+[node name="InventoryGrid" type="GridContainer" parent="Player/UI/InventoryPanel"]
+custom_minimum_size = Vector2(300, 300)
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -40.0
+offset_right = 40.0
+grow_vertical = 0
+columns = 4
+
+[node name="Area3D" type="Area3D" parent="Player"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Player/Area3D"]
+transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, 0, 0, 0)
+shape = SubResource("SphereShape3D_bugtv")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -0.02007, 0.999799, 0, -0.999799, -0.02007, 0, 22.4679, 0)
+
+[node name="RigidBody3D" type="RigidBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.33868, -6.13878)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="RigidBody3D"]
+mesh = SubResource("BoxMesh_yue24")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="RigidBody3D"]
+shape = SubResource("BoxShape3D_2gkch")

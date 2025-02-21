@@ -1,0 +1,8 @@
+[gd_scene format=3 uid="uid://cfejtarerncca"]
+
+[node name="InventorySlot" type="Button"]
+custom_minimum_size = Vector2(64, 64)
+offset_left = 5.0
+offset_top = 5.0
+offset_right = 8.0
+offset_bottom = 8.0
