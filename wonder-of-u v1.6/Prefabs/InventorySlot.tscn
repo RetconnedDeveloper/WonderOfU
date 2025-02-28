@@ -1,0 +1,14 @@
+[gd_scene format=3 uid="uid://cfejtarerncca"]
+
+[node name="InventorySlot" type="Button"]
+custom_minimum_size = Vector2(64, 64)
+offset_left = 5.0
+offset_top = 5.0
+offset_right = 8.0
+offset_bottom = 8.0
+size_flags_stretch_ratio = 0.0
+
+[node name="IconTexture" type="TextureRect" parent="."]
+layout_mode = 0
+offset_right = 64.0
+offset_bottom = 64.0
