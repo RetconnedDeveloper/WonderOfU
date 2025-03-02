@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://br1wrtv3h8na2"]
+
+[ext_resource type="Texture2D" uid="uid://bwg3hngfc48k3" path="res://Sprites/EquipIcon.png" id="1_bf272"]
+
+[node name="ItemHighlightSprite" type="Sprite3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -2.04059, 0)
+billboard = 1
+texture = ExtResource("1_bf272")
